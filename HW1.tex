@@ -1,4 +1,54 @@
-\documentclass{article}
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlsng}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hldef}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
 \usepackage[margin=1.0in]{geometry} % To set margins
 \usepackage{amsmath}  % This allows me to use the align functionality.
                       % If you find yourself trying to replicate
@@ -12,7 +62,7 @@
 \usepackage{float}    % For telling R where to put a table/figure
 \usepackage{natbib}        %For the bibliography
 \bibliographystyle{apalike}%For the bibliography
-
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
 \begin{enumerate}
@@ -31,9 +81,13 @@
 \textbf{Solution: }
 % Note that I have added eval=FALSE so that it won't run
 % each time I compile
-<<eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
-install.packages("aRtsy")
-@
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install.packages}\hldef{(}\hlsng{"aRtsy"}\hldef{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUESTION 1b
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,9 +95,13 @@ install.packages("aRtsy")
   We need to load the library each time it is run.\\
 \textbf{Solution:}
 % Note here I have removed eval=FALSE so this code will run
-<<size="scriptsize", warning=FALSE, message=FALSE>>=
-library(aRtsy)
-@
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hldef{(aRtsy)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUESTION 1c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,17 +110,23 @@ library(aRtsy)
  will find a link to a tutorial. Recreate the first figure they make using 
  \texttt{canvas\_collatz()}. Make sure to update the caption.\\
 \textbf{Solution:}
-<<CollatzPlot1, size="scriptsize", warning=FALSE, message=FALSE>>=
-help("aRtsy")
-set.seed(1)
-canvas_collatz(colors=colorPalette("tuscany3"))
-@
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{help}\hldef{(}\hlsng{"aRtsy"}\hldef{)}
+\hlkwd{set.seed}\hldef{(}\hlnum{1}\hldef{)}
+\hlkwd{canvas_collatz}\hldef{(}\hlkwc{colors}\hldef{=}\hlkwd{colorPalette}\hldef{(}\hlsng{"tuscany3"}\hldef{))}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/CollatzPlot1-1} 
+\end{knitrout}
 %Code to insert a figure [H]ere
 \begin{figure}[H]
 \begin{center}
-<<echo=FALSE,fig.dim=c(4,4)>>=
-<<CollatzPlot1>>
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-3-1} 
+\end{knitrout}
 \caption{A collatz conjecture with a seed of 1}
 \label{CollatzPlot1}
 \end{center}
@@ -74,16 +138,22 @@ canvas_collatz(colors=colorPalette("tuscany3"))
   numbers generated to create the plot. Can you see the difference? Make sure to 
   update the caption.\\
 \textbf{Solution:}
-<<CollatzPlot2, size="scriptsize", warning=FALSE, message=FALSE>>=
-set.seed(1313)
-canvas_collatz(colors=colorPalette("tuscany3"))
-@
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hldef{(}\hlnum{1313}\hldef{)}
+\hlkwd{canvas_collatz}\hldef{(}\hlkwc{colors}\hldef{=}\hlkwd{colorPalette}\hldef{(}\hlsng{"tuscany3"}\hldef{))}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/CollatzPlot2-1} 
+\end{knitrout}
 %Code to insert a figure [H]ere
 \begin{figure}[H]
 \begin{center}
-<<echo=FALSE,fig.dim=c(4,4)>>=
-<<CollatzPlot2>>
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-4-1} 
+\end{knitrout}
 \caption{A collatz conjecture with a seed of 1313}
 \label{CollatzPlot2}
 \end{center}
@@ -104,19 +174,25 @@ canvas_collatz(colors=colorPalette("tuscany3"))
   (note this is the default).
   \end{itemize}
 \textbf{Solution:}
-<<CollatzPlot3, size="scriptsize", warning=FALSE, message=FALSE>>=
-canvas_collatz(colors=colorPalette("vrolik4"), 
-               background = "#dbdbdb",
-               n = 72,
-               angle.even = 0.0145,
-               angle.odd = -0.05)
-@
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{canvas_collatz}\hldef{(}\hlkwc{colors}\hldef{=}\hlkwd{colorPalette}\hldef{(}\hlsng{"vrolik4"}\hldef{),}
+               \hlkwc{background} \hldef{=} \hlsng{"#dbdbdb"}\hldef{,}
+               \hlkwc{n} \hldef{=} \hlnum{72}\hldef{,}
+               \hlkwc{angle.even} \hldef{=} \hlnum{0.0145}\hldef{,}
+               \hlkwc{angle.odd} \hldef{=} \hlopt{-}\hlnum{0.05}\hldef{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/CollatzPlot3-1} 
+\end{knitrout}
 %Code to insert a figure [H]ere
 \begin{figure}[H]
 \begin{center}
-<<echo=FALSE,fig.dim=c(4,4)>>=
-<<CollatzPlot3>>
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-5-1} 
+\end{knitrout}
 \caption{A collatz conjecture with a seed of 1313, 72 strands, and -0.05 angle for bending the odd number sequence.}
 \label{CollatzPlot3}
 \end{center}
@@ -128,30 +204,36 @@ canvas_collatz(colors=colorPalette("vrolik4"),
   Note that I leave creating the R chunk and figure environment to you here. 
   Make sure that your code is well-formatted and your plot is appropriately scaled.\\
   \textbf{Solution:}
-<<PlanetPlot1,  size="scriptsize", warning=FALSE, message=FALSE>>=
-set.seed(149)
-colors <- list(
-  c("darkseagreen", "darkslategray4","deepskyblue4","azure"),
-  c("sienna3","peru",'lightsalmon1',"ghostwhite"),
-  c("orangered2","orange", "tomato1","coral"),
-  c("ivory","azure","mintcream","grey","grey100","lightgrey")
-)
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hldef{(}\hlnum{149}\hldef{)}
+\hldef{colors} \hlkwb{<-} \hlkwd{list}\hldef{(}
+  \hlkwd{c}\hldef{(}\hlsng{"darkseagreen"}\hldef{,} \hlsng{"darkslategray4"}\hldef{,}\hlsng{"deepskyblue4"}\hldef{,}\hlsng{"azure"}\hldef{),}
+  \hlkwd{c}\hldef{(}\hlsng{"sienna3"}\hldef{,}\hlsng{"peru"}\hldef{,}\hlsng{'lightsalmon1'}\hldef{,}\hlsng{"ghostwhite"}\hldef{),}
+  \hlkwd{c}\hldef{(}\hlsng{"orangered2"}\hldef{,}\hlsng{"orange"}\hldef{,} \hlsng{"tomato1"}\hldef{,}\hlsng{"coral"}\hldef{),}
+  \hlkwd{c}\hldef{(}\hlsng{"ivory"}\hldef{,}\hlsng{"azure"}\hldef{,}\hlsng{"mintcream"}\hldef{,}\hlsng{"grey"}\hldef{,}\hlsng{"grey100"}\hldef{,}\hlsng{"lightgrey"}\hldef{)}
+\hldef{)}
 
-canvas_planet(colors,
-              starprob=0.005,
-              radius = c(300, 200, 1500, 100),
-              center.x= c(750, 1900, -1100, 1200),
-              center.y= c(700, 700, 1000, 700),
-              light.right = FALSE,
-              resolution = 2000
-              )
-@
+\hlkwd{canvas_planet}\hldef{(colors,}
+              \hlkwc{starprob}\hldef{=}\hlnum{0.005}\hldef{,}
+              \hlkwc{radius} \hldef{=} \hlkwd{c}\hldef{(}\hlnum{300}\hldef{,} \hlnum{200}\hldef{,} \hlnum{1500}\hldef{,} \hlnum{100}\hldef{),}
+              \hlkwc{center.x}\hldef{=} \hlkwd{c}\hldef{(}\hlnum{750}\hldef{,} \hlnum{1900}\hldef{,} \hlopt{-}\hlnum{1100}\hldef{,} \hlnum{1200}\hldef{),}
+              \hlkwc{center.y}\hldef{=} \hlkwd{c}\hldef{(}\hlnum{700}\hldef{,} \hlnum{700}\hldef{,} \hlnum{1000}\hldef{,} \hlnum{700}\hldef{),}
+              \hlkwc{light.right} \hldef{=} \hlnum{FALSE}\hldef{,}
+              \hlkwc{resolution} \hldef{=} \hlnum{2000}
+              \hldef{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/PlanetPlot1-1} 
+\end{knitrout}
 %Code to insert a figure [H]ere
 \begin{figure}[H]
 \begin{center}
-<<echo=FALSE,fig.dim=c(4,4)>>=
-<<PlanetPlot1>>
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-6-1} 
+\end{knitrout}
 \caption{A planet plot of an Earth-like planet, a moon, and a Mars-like planet.}
 \label{PlanetPlot1}
 \end{center}
