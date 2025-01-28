@@ -40,3 +40,19 @@ canvas_planet(colors,
 #Q1g
 citation("aRtsy")
 citation("xtable")
+
+#######
+#Q2a
+vector1 = c(0:10) #creates a vector of the integers from 0 to 10
+#Q2b
+completed_algebra <- c()
+for (x in vector1){
+  equation1 <- 2^(x+1) + 2^(x-1) #left side of the equation; = 40
+  completed_algebra <- append(completed_algebra, equation1)
+}
+print(completed_algebra)
+#Q2c
+answerQ2 <- which(completed_algebra == 40)
+#Qd
+solution = vector1[answerQ2]
+print(solution)

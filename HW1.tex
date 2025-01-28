@@ -258,26 +258,54 @@ package for \texttt{R} \citep{aRtsy}.
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \item Create a numeric vector containing the integers from 0 to 10 inclusive. Hint -- the solution to this problem is one of these values.\\
 \textbf{Solution:}
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hldef{vector1} \hlkwb{=} \hlkwd{c}\hldef{(}\hlnum{0}\hlopt{:}\hlnum{10}\hldef{)} \hlcom{#creates a vector of the integers from 0 to 10}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % QUESTION 2b
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \item Complete the algebra to compute $2^{x+1} +2^{x-1}$ for each value in the numerical vector created in step 1. Make sure to save the result to a new numeric vector.\\
 \textbf{Solution:}
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hldef{completed_algebra} \hlkwb{<-} \hlkwd{c}\hldef{()}
+\hlkwa{for} \hldef{(x} \hlkwa{in} \hldef{vector1)\{}
+  \hldef{equation1} \hlkwb{<-} \hlnum{2}\hlopt{^}\hldef{(x}\hlopt{+}\hlnum{1}\hldef{)} \hlopt{+} \hlnum{2}\hlopt{^}\hldef{(x}\hlopt{-}\hlnum{1}\hldef{)} \hlcom{#left side of the equation; = 40}
+  \hldef{completed_algebra} \hlkwb{<-} \hlkwd{append}\hldef{(completed_algebra, equation1)}
+\hldef{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % QUESTION 2c
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \item Use the which() function to ask which result is 40.\\
 \textbf{Solution:}
+\begin{knitrout}\scriptsize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hldef{answerQ2} \hlkwb{<-} \hlkwd{which}\hldef{(completed_algebra} \hlopt{==} \hlnum{40}\hldef{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % QUESTION 2d
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \item What is the solution? That is, what value of x yields $2^{x+1} +2^{x-1} = 40$?\\
 \textbf{Solution:}
+
+$x = 4$
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % QUESTION 2e
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \item Explain why this approach wouldn't work for something like $3^{x+2} + 5 (3^x) = 84$ where the solution is $x \approx 1.6309$.\\
 \textbf{Solution:}
+This approach assumed that x is an integer between 0 and 10. We began and based all of our work off of that when we created the vector from 0-10 and tried every value in it, to see which was correct. This is more akin to "guess and check" than actual algebra, which is needed in more complicated problems.
 \end{enumerate}
 \end{enumerate}
 
