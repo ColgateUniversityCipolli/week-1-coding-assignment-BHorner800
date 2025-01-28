@@ -37,3 +37,6 @@ canvas_planet(colors,
               light.right = FALSE,
               resolution = 2000
               )
+#Q1g
+citation("aRtsy")
+citation("xtable")

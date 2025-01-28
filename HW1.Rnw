@@ -52,7 +52,7 @@ library(aRtsy)
  will find a link to a tutorial. Recreate the first figure they make using 
  \texttt{canvas\_collatz()}. Make sure to update the caption.\\
 \textbf{Solution:}
-<<CollatzPlot1, size="scriptsize", warning=FALSE, message=FALSE>>=
+<<CollatzPlot1, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
 help("aRtsy")
 set.seed(1)
 canvas_collatz(colors=colorPalette("tuscany3"))
@@ -74,7 +74,7 @@ canvas_collatz(colors=colorPalette("tuscany3"))
   numbers generated to create the plot. Can you see the difference? Make sure to 
   update the caption.\\
 \textbf{Solution:}
-<<CollatzPlot2, size="scriptsize", warning=FALSE, message=FALSE>>=
+<<CollatzPlot2, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
 set.seed(1313)
 canvas_collatz(colors=colorPalette("tuscany3"))
 @
@@ -104,7 +104,7 @@ canvas_collatz(colors=colorPalette("tuscany3"))
   (note this is the default).
   \end{itemize}
 \textbf{Solution:}
-<<CollatzPlot3, size="scriptsize", warning=FALSE, message=FALSE>>=
+<<CollatzPlot3, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
 canvas_collatz(colors=colorPalette("vrolik4"), 
                background = "#dbdbdb",
                n = 72,
@@ -128,7 +128,7 @@ canvas_collatz(colors=colorPalette("vrolik4"),
   Note that I leave creating the R chunk and figure environment to you here. 
   Make sure that your code is well-formatted and your plot is appropriately scaled.\\
   \textbf{Solution:}
-<<PlanetPlot1,  size="scriptsize", warning=FALSE, message=FALSE>>=
+<<PlanetPlot1,  eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
 set.seed(149)
 colors <- list(
   c("darkseagreen", "darkslategray4","deepskyblue4","azure"),
@@ -163,7 +163,7 @@ canvas_planet(colors,
   package and use \verb|\citep{}| to add a parenthetical citation to the end of
   the sentence below.
 \textbf{Solution:} We created the generative art in Question 1 using the \texttt{aRtsy}
-package for \texttt{R}.
+package for \texttt{R} \citep{aRtsy}.
 \end{enumerate}
 
 \newpage
